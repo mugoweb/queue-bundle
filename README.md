@@ -11,3 +11,17 @@ Commands
 ./bin/console mugo:queue:purge <processor>
 
 ```
+
+Creating a new Queue
+=
+
+Create queue service class
+--
+
+Configure queue service class
+--
+```
+  MugoWeb\QueueBundle\Queue\ExampleProcessor:
+    tags:
+      - { name: 'enqueue.transport.processor', processor: 'example_processor' }
+```

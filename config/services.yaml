@@ -1,0 +1,21 @@
+parameters:
+#nothing here
+
+services:
+  # Queue
+  MugoWeb\QueueBundle\Queue\ExampleProcessor:
+    tags:
+      - { name: 'enqueue.transport.processor', processor: 'example_processor' }
+
+  # Commands
+  MugoWeb\QueueBundle\Command\Produce:
+    tags: [ 'console.command' ]
+    arguments:
+      - '@enqueue.transport.default.processor_registry'
+      - '@enqueue.transport.default.context'
+
+  MugoWeb\QueueBundle\Command\Purge:
+    tags: [ 'console.command' ]
+    arguments:
+      - '@enqueue.transport.default.processor_registry'
+      - '@enqueue.transport.default.context'

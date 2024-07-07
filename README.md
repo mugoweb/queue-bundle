@@ -1,3 +1,18 @@
+Installation
+=
+You first need to decide which transporter you would like to use. There are several options: https://php-enqueue.github.io/transport
+For example, you want to use the file system to store the queue, you would need to install the enqueue package for that transporter
+
+```composer require enqueue/fs```
+
+Configure the transporter by either setting the environment variable or directly change the configuration file 'config/packages/enqueue.yaml'
+
+Set the ENQUEUE_DSN variable to 
+
+```ENQUEUE_DSN=file:```
+
+It will store the queue in the system temporary directory.
+
 Commands
 =
 ```

@@ -11,8 +11,7 @@
     ],
     "require": {
         "php": ">=7.4",
-        "enqueue/enqueue-bundle": "^0.10.19",
-        "enqueue/sqs": "^0.10.20"
+		"enqueue/enqueue-bundle": "^0.10.19"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

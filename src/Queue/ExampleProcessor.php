@@ -20,13 +20,16 @@ class ExampleProcessor extends BaseProcessor
 	{
 		$queue = $context->createQueue( self::getSubscribedQueues()[ 0 ] );
 
-		// Making sure the queue exists in AWS
-		$context->declareQueue( $queue );
+		if( method_exists( $context, 'declareQueue' ) )
+		{
+			// Making sure the queue exists in AWS
+			$context->declareQueue( $queue );
+		}
 
 		// message is being sent right now, we use it as RPC
 		$context->createProducer()->send(
 			$queue,
-			$this->getMessageByString( 'Hello World!' )
+			$context->createMessage( 'Hello World!' )
 		);
 	}
 

@@ -20,6 +20,7 @@ class BaseProcessor implements Processor, QueueSubscriberInterface
 		return [ 'default' ];
 	}
 
+	/** DEPRECATED */
 	public function getMessageByString( string $string, array $properties = [], $headers = [] ) : SqsMessage
 	{
 		return new SqsMessage( $string, $properties, $headers );
